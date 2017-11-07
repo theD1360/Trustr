@@ -1,0 +1,56 @@
+<div class="window">
+    <!-- .toolbar-header sits at the top of your app -->
+    <top-toolbar></top-toolbar>
+
+    <!-- Your app's content goes inside .window-content -->
+    <div class="window-content">
+        <div class="pane-group">
+            <left-toolbar></left-toolbar>
+
+            <div class="pane">
+                <div class="padded-more">
+                    <button ng-click="navigate('/person/'+person._id+'/edit')" class="pull-right btn btn-default"><span class="icon icon-pencil"></span> Edit</button>
+                    <img class="img-circle media-object pull-left" src="{{avatar(person)}}" width="64" height="64">
+                    <div class="media-body">
+                      <strong>{{person.names[0]}}</strong>
+                      <p>Aliases: {{person.names.join()}}</p>
+                      <p>Emails: {{person.emails.join()}}</p>
+                      <p>Phones: {{person.phones.join()}}</p>
+                      <p>Locations: {{person.locations.join()}}</p>
+                    </div>
+
+                </div>
+
+                <div class="padded-more">
+                    <h5>Description:</h5>
+                    <p>{{person.description}}</p>
+                </div>
+
+                <div class="padded-more">
+                    <h5>Comments:</h5>
+                    <ul>
+                        <li ng-repeat="comment in person.comments">
+                            <div class="media-body">
+                              <strong>{{comment.poster}}</strong>
+                              <p>Aliases: {{comment.comment}}</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+            <div class="pane">
+                <div class="padded-more">
+                    <div class="form-group">
+                        <label>Media</label>
+                        <button ng-click="uploadDialog()" class="pull-right btn btn-default"><span class="icon icon-upload"></span> Upload</button>
+                    </div>
+                    <img ng-repeat="media in person.media" class="media-object pull-left" src="http://127.0.0.1:9090/ipfs/{{media.hash}}" width="64" height="64">
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

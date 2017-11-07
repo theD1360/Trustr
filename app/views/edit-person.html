@@ -1,0 +1,84 @@
+<div class="window">
+    <!-- .toolbar-header sits at the top of your app -->
+    <top-toolbar></top-toolbar>
+
+    <!-- Your app's content goes inside .window-content -->
+    <div class="window-content">
+        <div class="pane-group">
+            <left-toolbar></left-toolbar>
+
+            <div class="pane">
+                <div class="padded-more">
+                    <button ng-click="save(person, newName, newEmail, newPhone, newLocation)" class="pull-right btn btn-default"><span class="icon icon-floppy"></span> Save</button>
+
+                    <img class="img-circle media-object pull-left" src="{{avatar(person)}}" width="64" height="64">
+                    <div class="media-body">
+                        <div class="form-group">
+                            <h5>Aliases:</h5>
+                            <div ng-repeat="(i, name) in person.names"><span>{{name}}</span> <span class="icon icon-trash" ng-click="person.names.splice(i, 1)"></span> </div>
+                            <div class="btn-group">
+                                <input type=text class="btn btn-default" ng-model="newName" placeholder="add name"></input>
+                                <button class="btn btn-primary" ng-click="addName(newName)">
+                                    <span class="icon icon-plus" style="color:white"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <h5>Emails:</h5>
+                            <div ng-repeat="(i, email) in person.emails"><span>{{email}}</span> <span class="icon icon-trash" ng-click="person.emails.splice(i, 1)"></span> </div>
+                            <div class="btn-group">
+                                <input type=text class="btn btn-default" ng-model="newEmail" placeholder="add email"></input>
+                                <button class="btn btn-primary" ng-click="addEmail(newEmail)">
+                                    <span class="icon icon-plus" style="color:white"></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <h5>Phones:</h5>
+                            <div ng-repeat="(i, phone) in person.phones"><span>{{phone}}</span> <span class="icon icon-trash" ng-click="person.phones.splice(i, 1)"></span> </div>
+                            <div class="btn-group">
+                                <input type=text class="btn btn-default" ng-model="newPhone" placeholder="add phone"></input>
+                                <button class="btn btn-primary" ng-click="addPhone(newPhone)">
+                                    <span class="icon icon-plus" style="color:white"></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <h5>Locations:</h5>
+                            <div ng-repeat="(i, location) in person.locations"><span>{{location}}</span> <span class="icon icon-trash" ng-click="person.locations.splice(i, 1)"></span> </div>
+                            <div class="btn-group">
+                                <input type=text class="btn btn-default" ng-model="newLocation" placeholder="add location"></input>
+                                <button class="btn btn-primary" ng-click="addLocation(newLocation)">
+                                    <span class="icon icon-plus" style="color:white"></span>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="padded-more">
+                    <div class="form-group">
+                        <h5>Description:</h5>
+                        <textarea class="form-control" rows="3" ng-model="person.description"></textarea>
+                    </div>
+                </div>
+
+                <div class="padded-more">
+                    <div class="form-group">
+                        <label>Media</label>
+                        <button ng-click="uploadDialog()" class="pull-right btn btn-default"><span class="icon icon-upload"></span> Upload</button>
+                    </div>
+                    <div class="media-object pull-left" ng-repeat="(i, media) in person.media">
+                        <div class="pull-right"><span class="icon icon-trash" ng-click="person.media.splice(i, 1)"></span></div>
+                        <img class="media-object" src="http://127.0.0.1:9090/ipfs/{{media.hash}}" width="64" height="64">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+    <div class="pane pane-sm sidebar">
+        <nav class="nav-group">
+            <h5 class="nav-group-title"><span class="icon icon-search"></span> Recent Searches</h5>
+
+          <span class="nav-group-item" ng-repeat="entry in history" ng-click='navigate("/search/"+entry)'>
+            {{entry}}
+          </span>
+
+        </nav>
+
+    </div>

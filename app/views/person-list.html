@@ -1,0 +1,18 @@
+<ul class="list-group" ng-if="people.length > 0">
+
+    <li class="list-group-item" ng-repeat="person in people" ng-click="navigate('/person/'+person._id)">
+      <img class="img-circle media-object pull-left" src="{{avatar(person)}}" width="32" height="32">
+      <div class="media-body">
+        <strong>{{person.names[0]}}</strong>
+        <p>Emails: {{person.emails.join()}}</p>
+        <p>Phones: {{person.phones.join()}}</p>
+        <p>Locations: {{person.locations.join()}}</p>
+      </div>
+    </li>
+
+</ul>
+
+<div ng-if="!people.length">
+    <p>No results found...</p>
+    <small><a href="#!/create">Would you like to create a new entry?</a></small>
+</div>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"  ng-app="player">
+<head>
+    <meta charset="UTF-8">
+
+    <title></title>
+    <link href="node_modules/video.js/dist/video-js.min.css" rel="stylesheet">
+
+    <script>
+        // You can also require other data to run in this process
+        require('./renderer.js');
+        require('angular');
+        require('angular-route');
+        require('angular-local-storage');
+        require('video.js');
+        require('./app/js/player.js');
+    </script>
+</head>
+<body ng-view style="background-color:white; padding:0; margin:0; text-align: center">
+
+</body>
+</html>

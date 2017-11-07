@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <title>Trustr</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="app/css/photon.css">
+
+    <script>
+      // You can also require other data to run in this process
+      require('./renderer.js');
+      require('angular');
+      require('angular-route');
+      require('angular-resource');
+      require('angular-local-storage');
+      require('angular-thumbnails');
+      require('./app/js/app.js');
+    </script>
+
+  </head>
+  <body ng-view>
+
+  </body>
+</html>
